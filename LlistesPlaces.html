@@ -29,12 +29,6 @@
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
 <!-- DATATABLE JS -->
-<!-- <script type="text/javascript" charset="utf8"
-	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
-	$(document).ready(function() {
-		$('#example').DataTable();
-	});
-</script> -->
 <!-- DATATABLE AJAX JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script
@@ -42,19 +36,23 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#example').DataTable({
-			"ajax" : "data/objects.txt",
+			"ajax" : "data/prova.txt",
 			"columns" : [ {
-				"data" : "name"
+				"data" : "unitat"
 			}, {
-				"data" : "position"
+				"data" : "nom_del_lloc"
 			}, {
-				"data" : "office"
+				"data" : "destinacio"
 			}, {
-				"data" : "extn"
+				"data" : "illa"
 			}, {
-				"data" : "start_date"
+				"data" : "admin"
 			}, {
-				"data" : "salary"
+				"data" : "tipus_contracte"
+			}, {
+				"data" : "tipus_jornada"
+			}, {
+				"data" : "categoria"
 			} ]
 		});
 	});
@@ -141,22 +139,26 @@
 					<table id="example" class="display" style="width: 100%">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Position</th>
-								<th>Office</th>
-								<th>Extn.</th>
-								<th>Start date</th>
-								<th>Salary</th>
+								<th>Unitat Educativa</th>
+								<th>Nom de Lloc</th>
+								<th>Destinació</th>
+								<th>Illa</th>
+								<th>Admin</th>
+								<th>Tipus de Contracte</th>
+								<th>Tipus de Jornada</th>
+								<th>Categoria</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
-								<th>Name</th>
-								<th>Position</th>
-								<th>Office</th>
-								<th>Extn.</th>
-								<th>Start date</th>
-								<th>Salary</th>
+								<th>Unitat Educativa</th>
+								<th>Nom de Lloc</th>
+								<th>Destinació</th>
+								<th>Illa</th>
+								<th>Admin</th>
+								<th>Tipus de Contracte</th>
+								<th>Tipus de Jornada</th>
+								<th>Categoria</th>
 							</tr>
 						</tfoot>
 					</table>
