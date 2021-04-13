@@ -135,6 +135,36 @@
 	<section class="container">
 		<div class="row">
 			<div class="col-lg-12">
+				<form>
+					<div class="mb-3">
+						<label for="nom" class="form-label">Nom</label> <input type="text"
+							class="form-control" id="nom">
+					</div>
+					<div class="mb-3">
+						<label for="llinatge1" class="form-label">Primer Llinatge</label>
+						<input type="text" class="form-control" id="llinatge1">
+					</div>
+					<div class="mb-3">
+						<label for="llinatge2" class="form-label">Segon Llinatge</label> <input
+							type="text" class="form-control" id="llinatge2">
+					</div>
+					<div class="mb-3">
+						<label for="catProfessional" class="form-label">Categoria
+							Professional</label> <select class="form-select" id="catProfessional"
+							aria-label="Default select example">
+							<option selected>Tria una categoria</option>
+							<option value="1">Netejador/a</option>
+							<option value="2">ATE</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Envia</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row">
+			<div class="col-lg-12">
 				<div class="table-responsive">
 					<table id="example" class="display" style="width: 100%">
 						<thead>
@@ -162,6 +192,10 @@
 							</tr>
 						</tfoot>
 					</table>
+				</div>
+				<div class="container text-center">
+					<button type="button" class="btn btn-primary">Desa</button>
+					<button type="button" class="btn btn-primary">Següent</button>
 				</div>
 			</div>
 		</div>
