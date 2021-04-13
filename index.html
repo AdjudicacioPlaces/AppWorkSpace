@@ -39,28 +39,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script
 	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#example').DataTable({
-			"ajax" : "data/objects.txt",
-			"columns" : [ {
-				"data" : "id"
-			}, {
-				"data" : "name"
-			}, {
-				"data" : "position"
-			}, {
-				"data" : "salary"
-			}, {
-				"data" : "start_date"
-			}, {
-				"data" : "office"
-			}, {
-				"data" : "extn"
-			} ]
-		});
-	});
-</script>
 <style type="text/css">
 .slick-track {
 	display: flex !important;
@@ -139,30 +117,13 @@
 	<section class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="table-responsive">
-					<table id="example" class="display" style="width: 100%">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Position</th>
-								<th>Office</th>
-								<th>Extn.</th>
-								<th>Start date</th>
-								<th>Salary</th>
-							</tr>
-						</thead>
-						<tfoot>
-							<tr>
-								<th>Name</th>
-								<th>Position</th>
-								<th>Office</th>
-								<th>Extn.</th>
-								<th>Start date</th>
-								<th>Salary</th>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
+				<h2>Aplicació per l'adjudicació de places</h2>
+				<ul>
+					<li><a href="Convocatories.html">Convocatòries</a></li>
+					<li><a href="LlistesPlaces.html">Llistes de places</a></li>
+					<li><a href="Adjudicacio.html">Gestió d'ajudicació de
+							places</a></li>
+				</ul>
 			</div>
 		</div>
 	</section>

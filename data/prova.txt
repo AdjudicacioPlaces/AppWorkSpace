@@ -7,7 +7,9 @@
       "destinacio": "Palma",
       "illa": "Mallorca",
       "admin": "CAIB",
-      "tipus_contracte": "Fixo discontinu"
-      "tipus_jornada": "Completa"
+      "tipus_contracte": "Fixo discontinu",
+      "tipus_jornada": "Completa",
       "categoria": "Netejador/a"
-    }]}
+    }
+  ]
+}

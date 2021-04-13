@@ -25,19 +25,36 @@
 <!-- DATATABLE CSS -->
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<!-- DATATABLE AJAX CSS -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
 <!-- DATATABLE JS -->
-<!-- <script type="text/javascript" charset="utf8"
-	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
-	$(document).ready(function() {
-		$('#example').DataTable();
-	});
-</script> -->
+<!-- DATATABLE AJAX JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script
 	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script>
+<script type="text/javascript">
 	$(document).ready(function() {
-		$('#example').DataTable();
+		$('#example').DataTable({
+			"ajax" : "data/prova.txt",
+			"columns" : [ {
+				"data" : "unitat"
+			}, {
+				"data" : "nom_del_lloc"
+			}, {
+				"data" : "destinacio"
+			}, {
+				"data" : "illa"
+			}, {
+				"data" : "admin"
+			}, {
+				"data" : "tipus_contracte"
+			}, {
+				"data" : "tipus_jornada"
+			}, {
+				"data" : "categoria"
+			} ]
+		});
 	});
 </script>
 <style type="text/css">
@@ -115,6 +132,40 @@
 			</div>
 		</div>
 	</header>
+	<section class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive">
+					<table id="example" class="display" style="width: 100%">
+						<thead>
+							<tr>
+								<th>Unitat Educativa</th>
+								<th>Nom de Lloc</th>
+								<th>Destinació</th>
+								<th>Illa</th>
+								<th>Admin</th>
+								<th>Tipus de Contracte</th>
+								<th>Tipus de Jornada</th>
+								<th>Categoria</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Unitat Educativa</th>
+								<th>Nom de Lloc</th>
+								<th>Destinació</th>
+								<th>Illa</th>
+								<th>Admin</th>
+								<th>Tipus de Contracte</th>
+								<th>Tipus de Jornada</th>
+								<th>Categoria</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
 	<section class="container">
 		<div class="row">
 			<div class="col-md-8">
