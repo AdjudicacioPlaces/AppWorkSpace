@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "unitat": "IES JUNIPER SERRA",
+      "nom_del_lloc": "Netejador/a",
+      "destinacio": "Palma",
+      "illa": "Mallorca",
+      "admin": "CAIB",
+      "tipus_contracte": "Fixo discontinu",
+      "tipus_jornada": "Completa",
+      "categoria": "Netejador/a"
+    }
+  ]
+}
