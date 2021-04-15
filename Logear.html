@@ -22,39 +22,72 @@
 	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
 	crossorigin="anonymous"></script>
 <!-- DATATABLE CSS -->
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 <!-- DATATABLE AJAX CSS -->
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
-<!-- DATATABLE JS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+<!-- DATATABLE EDITOR CSS -->
+<link rel="stylesheet" type="text/css" href="../../extensions/Editor/css/editor.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.0.2/css/dataTables.dateTime.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css"/>
 <!-- DATATABLE AJAX JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script
-	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<!-- DATATABLE EXPORT DATA RESOURCES -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.min.js"></script>
+<script src="../../extensions/Editor/js/dataTables.editor.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.0.2/js/dataTables.dateTime.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('#example').DataTable({
-			"ajax" : "data/prova.txt",
-			"columns" : [ {
-				"data" : "unitat"
-			}, {
-				"data" : "nom_del_lloc"
-			}, {
-				"data" : "destinacio"
-			}, {
-				"data" : "illa"
-			}, {
-				"data" : "admin"
-			}, {
-				"data" : "tipus_contracte"
-			}, {
-				"data" : "tipus_jornada"
-			}, {
-				"data" : "categoria"
-			} ]
+var pattern = "";
+$(document).ready(function(){
+			var table = $('#example').DataTable({
+				"destroy":true,
+				"ajax" : "data/prova.txt",
+				"columns" : 
+					[ 	
+						{"data" : "unitat"}, 
+						{"data" : "nom_del_lloc"}, 
+						{"data" : "destinacio"}, 
+						{"data" : "illa"}, 
+						{"data" : "admin"}, 
+						{"data" : "tipus_contracte"}, 
+						{"data" : "tipus_jornada"}, 
+						{"data" : "categoria"},
+						{"data" : "ordre_preferencia"},
+						{"defaultContent":"<input type='number' class='ordre_pref' value='0' min='1' max='1'>"
+						}
+					],
+					"dom":"Bfrtip",
+					"buttons":[
+						{
+							extend:"csvHtml5",
+							titleAttr:"CSV"
+						}
+					]
+			});
 		});
-	});
+function desarDades() {
+	console.log(table.rows().data());
+}
 </script>
 <style type="text/css">
 .slick-track {
@@ -113,16 +146,18 @@
 										ajornaments</a></li>
 								<li><a class="dropdown-item" href="#">Comprova la teva
 										titulació</a></li>
-							</ul> <li class="nav-item"><a class="nav-link active" href="">Dades
+							</ul>
+						<li class="nav-item"><a class="nav-link active" href="">Dades
 								prèvies 21/22</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</nav>
-<!-- Barra Navegación --> <!-- Cabecera -->
+	<!-- Barra Navegación -->
+	<!-- Cabecera -->
 	<header class="py-5 mb-5"
-								style="background-color: #10BED2; margin-top: 60px">
+		style="background-color: #10BED2; margin-top: 60px">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-12">
@@ -143,7 +178,7 @@
 				<form>
 					<div class="mb-3">
 						<label for="nom" class="form-label">Nom</label> <input type="text"
-													class="form-control" id="nom">
+							class="form-control" id="nom">
 					</div>
 					<div class="mb-3">
 						<label for="llinatge1" class="form-label">Primer Llinatge</label>
@@ -151,19 +186,19 @@
 					</div>
 					<div class="mb-3">
 						<label for="llinatge2" class="form-label">Segon Llinatge</label> <input
-													type="text" class="form-control" id="llinatge2">
+							type="text" class="form-control" id="llinatge2">
 					</div>
 					<div class="mb-3">
 						<label for="catProfessional" class="form-label">Categoria
 							Professional</label> <select class="form-select" id="catProfessional"
-													aria-label="Default select example">
+							aria-label="Default select example">
 							<option selected>Tria una categoria</option>
 							<option value="1">Netejador/a</option>
 							<option value="2">ATE</option>
 						</select>
 					</div>
 					<div class="text-center"
-												style="margin-top: 20px; margin-bottom: 60px">
+						style="margin-top: 20px; margin-bottom: 60px">
 						<button type="submit" class="btn btn-primary">Envia</button>
 					</div>
 				</form>
@@ -186,6 +221,8 @@
 								<th>Tipus de Contracte</th>
 								<th>Tipus de Jornada</th>
 								<th>Categoria</th>
+								<th>Ordre preferencia</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -198,13 +235,15 @@
 								<th>Tipus de Contracte</th>
 								<th>Tipus de Jornada</th>
 								<th>Categoria</th>
+								<th>Ordre preferencia</th>
+								<th></th>
 							</tr>
 						</tfoot>
 					</table>
 				</div>
 				<div class="container text-center"
-											style="margin-top: 20px; margin-bottom: 60px">
-					<button type="button" class="btn btn-primary">Desa</button>
+					style="margin-top: 20px; margin-bottom: 60px">
+					<button type="button" class="btn btn-primary" onclick="desarDades()">Desa</button>
 					<button type="button" class="btn btn-primary">Següent</button>
 				</div>
 			</div>
@@ -249,5 +288,5 @@
 	</footer>
 	<!-- Footer -->
 
-						</body>
+</body>
 </html>
