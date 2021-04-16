@@ -4,37 +4,62 @@
 <meta charset="ISO-8859-1">
 <title>Json to Table testing</title>
 <script>
-var children = [{num: 6, name: 'me', phone: 7}, {num: 8, name: 'him', phone: 9}];
+var data = [
+	  {
+	    "UserID": 1,
+	    "UserName": "rooter",
+	    "Password": "12345",
+	    "Country": "UK",
+	    "Email": "sac@gmail.com"
+	  },
+	  {
+	    "UserID": 2,
+	    "UserName": "binu",
+	    "Password": "123",
+	    "Country": "uk",
+	    "Email": "Binu@gmail.com"
+	  },
+	  {
+	    "UserID": 3,
+	    "UserName": "cal",
+	    "Password": "123",
+	    "Country": "uk",
+	    "Email": "cal@gmail.com"
+	  },
+	  {
+	    "UserID": 4,
+	    "UserName": "nera",
+	    "Password": "1234",
+	    "Country": "uk",
+	    "Email": "nera@gmail.com"
+	  }
+	];
 
-function addHeaders(table, keys) {
-  var row = table.insertRow();
-  for( var i = 0; i < keys.length; i++ ) {
-    var cell = row.insertCell();
-    cell.appendChild(document.createTextNode(keys[i]));
-  }
+	var keys = [];
+
+	document.getElementById("section").write("<table id='table' border==\"1\"><tr>");
+	for (key in data[0]) {
+		document.write('<th>' + key + '</th>');
+	}
+	document.getElementById("section").write("</tr>");
+	for (var i = 0; i < data.length; i++) {
+		document.getElementById("section").write('<tr>');
+		for (key in data[i]) {
+			document.getElementById("section").write('<td>' + data[i][key] + '</td>');
+	  }
+		document.getElementById("section").write('</tr>');
+	}
+	document.getElementById("section").write("</table>");
+
+function desarDades(){
+	document.getElementById("table").
 }
-
-var table = document.createElement('table');
-for( var i = 0; i < children.length; i++ ) {
-
-  var child = children[i];
-  if(i === 0 ) {
-    addHeaders(table, Object.keys(child));
-  }
-  var row = table.insertRow();
-  Object.keys(child).forEach(function(k) {
-    console.log(k);
-    var cell = row.insertCell();
-    cell.appendChild(document.createTextNode(child[k]));
-  })
-}
-
-document.getElementById('container').appendChild(table);
 </script>
 </head>
 <body>
 <header></header>
-<section></section>
+<section id="section">
+<button type="button" onClick="desarDades()">Desar</button></section>
 <footer></footer>
 </body>
 </html>
