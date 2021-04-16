@@ -3,60 +3,54 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Json to Table testing</title>
-<script>
-$(section).ready(function(){
-    $(".up,.down").click(function(){
-        var row = $(this).parents("tr:first");
-        if ($(this).is(".up")) {
-            row.insertBefore(row.prev());
-        } else {
-            row.insertAfter(row.next());
-        }
-    });
+</head>
+<!-- JQUERY -->
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Unitat Educativa</th>
+				<th>Nom de Lloc</th>
+				<th>Destinació</th>
+				<th>Ordre preferencia</th>
+			</tr>
+			<tr>
+			<td>aaaaaaa</td>
+			<td>aaaaaa</td>
+			<td>aaaaaaa</td>
+			<td class="editable">0</td>
+			</tr>
+			<tr>
+			<td>bbbbbb</td>
+			<td>bbbbbb</td>
+			<td>bbbbbb</td>
+			<td class="editable">0</td>
+			</tr>
+			<tr>
+			<td>cccccc</td>
+			<td>cccccc</td>
+			<td>cccccc</td>
+			<td class="editable">0</td>
+			</tr>
+			<tr>
+			<td>ddddddd</td>
+			<td>ddddd</td>
+			<td>dddddd</td>
+			<td class="editable">0</td>
+			</tr>
+		</thead>
+	</table>
+	<button id="editar">Editar</button>
+	<button id="desar">Desar</button>
+	<script>
+$(document).ready(function(){
+   $("#editar").click(function(){
+	   $("td.editable").empty;
+	   //$("td.editable").append("<input type='number' pattern='[0-9]{1}' value='0'></input>");
+   })
 });
 </script>
-</head>
-<body>
-<header></header>
-<section id="section">
-<table>
-    <tr>
-        <td>One</td>
-        <td>
-            <a href="#" class="up">Up</a>
-            <a href="#" class="down">Down</a>
-        </td>
-    </tr>
-    <tr>
-        <td>Two</td>
-        <td>
-            <a href="#" class="up">Up</a>
-            <a href="#" class="down">Down</a>
-        </td>
-    </tr>
-    <tr>
-        <td>Three</td>
-        <td>
-            <a href="#" class="up">Up</a>
-            <a href="#" class="down">Down</a>
-        </td>
-    </tr>
-    <tr>
-        <td>Four</td>
-        <td>
-            <a href="#" class="up">Up</a>
-            <a href="#" class="down">Down</a>
-        </td>
-    </tr>
-    <tr>
-        <td>Five</td>
-        <td>
-            <a href="#" class="up">Up</a>
-            <a href="#" class="down">Down</a>
-        </td>
-    </tr>
-</table>
-<button type="button" onClick="desarDades()">Desar</button></section>
-<footer></footer>
 </body>
 </html>
