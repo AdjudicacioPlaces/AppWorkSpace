@@ -43,6 +43,7 @@
 						cellValue = "";
 					row$.append($('<td/>').html(cellValue));
 				}
+				row$.append($('<td/>').html("<input type='number' min='0' max='9'>"));
 				$(selector).append(row$);
 			}
 		}
@@ -50,6 +51,7 @@
 		// Adds a header row to the table and returns the set of columns.
 		// Need to do union of keys from all records as some records may not contain
 		// all records.
+		
 		function addAllColumnHeaders(myList, selector) {
 			var columnSet = [];
 			var headerTr$ = $('<tr/>');
@@ -63,6 +65,7 @@
 					}
 				}
 			}
+			headerTr$.append($('<th/>').html("Modificar"));
 			$(selector).append(headerTr$);
 
 			return columnSet;
