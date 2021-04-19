@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "llocs_treball": "07002191 - IES MOSSÈN ALCOVER (MANACOR) ",
+      "funcions": "0590108 - INTERVENCIÓ SOCIOCOMUNITÀRIA ",
+      "perfils": "Cicle formatiu de grau superior Horari de tarda - Centre amb matí i tarda : L'horari indicat pot patir modificacions. El centre desenvolupa la seva oferta educativa en horari de matí i horari de tarda. Base específica 9 (Resolució DGPD 19/12/2019) : Inserció automàtica Perfil 500 ",
+      "tipus": "Vacant",
+      "mitja_jornada": "No",
+      "itinerant": "No",
+      "data_inici": "12-04-2021",
+      "data_finalitzacio_prevista": "30-06-2021",
+      "data_peticio_director": "05-04-2021",
+      "motiu": "RENÚNCIA NO JUSTIFICADA",
+      "data_anulacio": "09-04-2021",
+      "motiu_anulacio": "PERFILACIO ERRONIA"
+    }
+  ]
+}

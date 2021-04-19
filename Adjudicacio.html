@@ -21,6 +21,319 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
 	crossorigin="anonymous"></script>
+
+
+<!-- DATATABLE CSS -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+
+<!-- DATATABLE AJAX CSS -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+
+<!-- Proba -->
+<script src="https:////cdn.datatables.net/plug-ins/1.10.24/sorting/intl.js"></script>
+<script src=//cdn.datatables.net/plug-ins/1.10.24/filtering/type-based/accent-neutralise.js></script>
+
+
+
+<!-- DATATABLE AJAX JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready((function(){
+	 
+	function removeAccents ( data ) {
+	    if ( data.normalize ) {
+	        // Use I18n API if avaiable to split characters and accents, then remove
+	        // the accents wholesale. Note that we use the original data as well as
+	        // the new to allow for searching of either form.
+	        return data +' '+ data
+	            .normalize('NFD')
+	            .replace(/[\u0300-\u036f]/g, '');
+	    }
+	 
+	    return data;
+	}
+	 
+	var searchType = jQuery.fn.DataTable.ext.type.search;
+	 
+	searchType.string = function ( data ) {
+	    return ! data ?
+	        '' :
+	        typeof data === 'string' ?
+	            removeAccents( data ) :
+	            data;
+	};
+	 
+	searchType.html = function ( data ) {
+	    return ! data ?
+	        '' :
+	        typeof data === 'string' ?
+	            removeAccents( data.replace( /<.*?>/g, '' ) ) :
+	            data;
+	};
+	 
+	}()));
+</script>
+	
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#places_adjudicades').DataTable( {
+    	"ajax": "data/arrays.txt",
+    	"columns": [
+            { "data": "data_adjudicacio" },
+            { "data": "llocs_treball" },
+            { "data": "convocatoria" },
+            { "data": "funcions" },
+            { "data": "tipus" },
+            { "data": "mitja_jornada" },
+            { "data": "itinerant" },
+            { "data": "data_inici" },
+            { "data": "data_finalitzacio_prevista" },
+            { "data": "data_peticio_director" },
+            { "data": "motiu" }   
+        ],
+        "language": {
+            "processing": "Processant...",
+            "lengthMenu": "Mostra _MENU_ registres",
+            "zeroRecords": "No s'han trobat registres",
+            "emptyTable": "No hi ha registres disponible en aquesta taula",
+            "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
+            "infoEmpty": "No hi ha registres disponibles",
+            "infoFiltered": "(filtrat de _MAX_ registres)",
+            "search": "Cerca:",
+            "infoThousands": ".",
+            "decimal": ",",
+            "loadingRecords": "Carregant...",
+            "paginate": {
+                "first": "Primer",
+                "previous": "Anterior",
+                "next": "Següent",
+                "last": "Últim"
+            },
+            "aria": {
+                "sortAscending": ": Activa per ordenar la columna de manera ascendent",
+                "sortDescending": ": Activa per ordenar la columna de manera descendent"
+            },
+            "buttons": {
+                "print": "Imprimeix",
+                "copy": "Copia",
+                "colvis": "Columnes",
+                "copyTitle": "Copia al portapapers",
+                "copySuccess": {
+                    "_": "%d files copiades",
+                    "1": "1 fila copiada"
+                },
+                "pageLength": {
+                    "-1": "Mostra totes les files",
+                    "_": "Mostra %d files"
+                },
+                "pdf": "PDF"
+            },
+            "select": {
+                "rows": {
+                    "_": "%d files seleccionades",
+                    "0": "Cap fila seleccionada",
+                    "1": "1 fila seleccionada"
+                }
+            },
+            "autoFill": {
+                "cancel": "Cancel·lar"
+            },
+            "thousands": ".",
+            "datetime": {
+                "hours": "Hora",
+                "minutes": "Minut",
+                "seconds": "Segons",
+                "unknown": "Desconegut",
+                "amPm": [
+                    "am",
+                    "pm"
+                ]
+            },
+            "editor": {
+                "close": "Tancar"
+            }
+        },
+    } );
+    
+} );
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#places_no_adjudicades').DataTable( {
+    	"ajax": "data/arrays.txt",
+    	"columns": [
+            { "data": "data_adjudicacio" },
+            { "data": "llocs_treball" },
+            { "data": "convocatoria" },
+            { "data": "funcions" },
+            { "data": "tipus" },
+            { "data": "mitja_jornada" },
+            { "data": "itinerant" },
+            { "data": "data_inici" },
+            { "data": "data_finalitzacio_prevista" },
+            { "data": "data_peticio_director" },
+            { "data": "motiu" }   
+        ],
+        "language": {
+            "processing": "Processant...",
+            "lengthMenu": "Mostra _MENU_ registres",
+            "zeroRecords": "No s'han trobat registres",
+            "emptyTable": "No hi ha registres disponible en aquesta taula",
+            "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
+            "infoEmpty": "No hi ha registres disponibles",
+            "infoFiltered": "(filtrat de _MAX_ registres)",
+            "search": "Cerca:",
+            "infoThousands": ".",
+            "decimal": ",",
+            "loadingRecords": "Carregant...",
+            "paginate": {
+                "first": "Primer",
+                "previous": "Anterior",
+                "next": "Següent",
+                "last": "Últim"
+            },
+            "aria": {
+                "sortAscending": ": Activa per ordenar la columna de manera ascendent",
+                "sortDescending": ": Activa per ordenar la columna de manera descendent"
+            },
+            "buttons": {
+                "print": "Imprimeix",
+                "copy": "Copia",
+                "colvis": "Columnes",
+                "copyTitle": "Copia al portapapers",
+                "copySuccess": {
+                    "_": "%d files copiades",
+                    "1": "1 fila copiada"
+                },
+                "pageLength": {
+                    "-1": "Mostra totes les files",
+                    "_": "Mostra %d files"
+                },
+                "pdf": "PDF"
+            },
+            "select": {
+                "rows": {
+                    "_": "%d files seleccionades",
+                    "0": "Cap fila seleccionada",
+                    "1": "1 fila seleccionada"
+                }
+            },
+            "autoFill": {
+                "cancel": "Cancel·lar"
+            },
+            "thousands": ".",
+            "datetime": {
+                "hours": "Hora",
+                "minutes": "Minut",
+                "seconds": "Segons",
+                "unknown": "Desconegut",
+                "amPm": [
+                    "am",
+                    "pm"
+                ]
+            },
+            "editor": {
+                "close": "Tancar"
+            }
+        }  
+    } );
+    
+} );
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#places_eliminades').DataTable( {
+    	"ajax": "data/places_eliminades.txt",
+    	"columns": [
+            { "data": "llocs_treball" },
+            { "data": "funcions" },
+            { "data": "perfils" },
+            { "data": "tipus" },
+            { "data": "mitja_jornada" },
+            { "data": "itinerant" },
+            { "data": "data_inici" },
+            { "data": "data_finalitzacio_prevista" },
+            { "data": "data_peticio_director" },
+            { "data": "motiu" },
+            { "data": "data_anulacio" },
+            { "data": "motiu_anulacio" }
+            
+        ],
+        "language": {
+            "processing": "Processant...",
+            "lengthMenu": "Mostra _MENU_ registres",
+            "zeroRecords": "No s'han trobat registres",
+            "emptyTable": "No hi ha registres disponible en aquesta taula",
+            "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
+            "infoEmpty": "No hi ha registres disponibles",
+            "infoFiltered": "(filtrat de _MAX_ registres)",
+            "search": "Cerca:",
+            "infoThousands": ".",
+            "decimal": ",",
+            "loadingRecords": "Carregant...",
+            "paginate": {
+                "first": "Primer",
+                "previous": "Anterior",
+                "next": "Següent",
+                "last": "Últim"
+            },
+            "aria": {
+                "sortAscending": ": Activa per ordenar la columna de manera ascendent",
+                "sortDescending": ": Activa per ordenar la columna de manera descendent"
+            },
+            "buttons": {
+                "print": "Imprimeix",
+                "copy": "Copia",
+                "colvis": "Columnes",
+                "copyTitle": "Copia al portapapers",
+                "copySuccess": {
+                    "_": "%d files copiades",
+                    "1": "1 fila copiada"
+                },
+                "pageLength": {
+                    "-1": "Mostra totes les files",
+                    "_": "Mostra %d files"
+                },
+                "pdf": "PDF"
+            },
+            "select": {
+                "rows": {
+                    "_": "%d files seleccionades",
+                    "0": "Cap fila seleccionada",
+                    "1": "1 fila seleccionada"
+                }
+            },
+            "autoFill": {
+                "cancel": "Cancel·lar"
+            },
+            "thousands": ".",
+            "datetime": {
+                "hours": "Hora",
+                "minutes": "Minut",
+                "seconds": "Segons",
+                "unknown": "Desconegut",
+                "amPm": [
+                    "am",
+                    "pm"
+                ]
+            },
+            "editor": {
+                "close": "Tancar"
+            }
+        }  
+    } );
+    
+} );
+</script>
 <style type="text/css">
 .slick-track {
 	display: flex !important;
@@ -254,76 +567,46 @@
 					</tr>
 				</thead>
 			</table>
-			<table
-				class="table table-hover table-bordered border border-secondary"
-				id="21655">
-				<thead>
-					<tr class="bg-secondary text-white">
-						<th colspan="3" scope="row">8830&nbsp; - Menorca&nbsp; - IES
-							JOSEP MARIA QUADRADO (CIUTADELLA DE MENORCA)&nbsp; - (0590004)
-							LLENGUA CASTELLANA I LITERATURA&nbsp;</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td colspan="3"><strong>Data adjudicació: </strong>09-04-2021
-							00:00</td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="2"><strong>Llocs treball</strong></td>
-						<td colspan="1"><strong>Convocatòria</strong></td>
-					</tr>
-					<tr>
-						<td colspan="2"><span class="text-uppercase d-block">
-								07000832 - IES JOSEP MARIA QUADRADO (CIUTADELLA DE MENORCA) </span></td>
-						<td colspan="1">388</td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Funcions</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3"><span class="text-uppercase d-block">
-								<i class="material-icons text-warning align-middle"
-								title="Funció principal">star</i> 0590004 - LLENGUA CASTELLANA I
-								LITERATURA
-						</span></td>
-					</tr>
-					<tr class="bg-light">
-						<td class="text-center"><strong>Tipus</strong></td>
-						<td class="text-center"><strong>Mitja jornada</strong></td>
-						<td class="text-center"><strong>Itinerant</strong></td>
-					</tr>
-					<tr>
-						<td class="text-center">Substitució</td>
-						<td class="text-center">No</td>
-						<td class="text-center">No</td>
-					</tr>
-					<tr class="bg-light text-center">
-						<td><strong>Data inici</strong></td>
-						<td><strong>Data finalització prevista</strong></td>
-						<td><strong>Data petició director</strong></td>
-					</tr>
-					<tr class="text-center">
-						<td>12-04-2021</td>
-						<td>30-06-2021</td>
-						<td>-</td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Motiu</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3">EXCEDÈNCIES</td>
-					</tr>
-					<tr class="alert-primary">
-						<td colspan="3">Tutoritzat (curs actual): <strong>N</strong>.
-							Adjudicada a: <strong>MAJADA MANRESA, SERGIO</strong>. Punts: <strong>5.0</strong>.
-							Resultats de les adjudicacions: <strong>0</strong>. Nota Exp. al
-							grup: <strong>6.26</strong> Hora Reg.: <strong>07-04-2021
-								13:02:47</strong> <br>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+	<section class="container text-center">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive">
+					<table id="places_adjudicades" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Data adjudicació</th>
+                <th>Llocs treball</th>
+                <th>Convocatòria</th>
+                <th>Funcions</th>
+                <th>Tipus</th>
+				<th>Mitja jornada</th>
+                <th>Itinerant</th>
+                <th>Data inici</th>
+                <th>Data finalització prevista</th>
+                <th>Data petició director</th>
+                <th>Motiu</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Data adjudicació</th>
+                <th>Llocs treball</th>
+                <th>Convocatòria</th>
+                <th>Funcions</th>
+                <th>Tipus</th>
+				<th>Mitja jornada</th>
+                <th>Itinerant</th>
+                <th>Data inici</th>
+                <th>Data finalització prevista</th>
+                <th>Data petició director</th>
+                <th>Motiu</th>
+            </tr>
+        </tfoot>
+    </table>
+				</div>
+			</div>
+		</div>
+	</section>
 		</div>
 		<div class="container pb-3" id="classResultatsDIS">
 			<table id="placesDisponibles"
@@ -341,67 +624,46 @@
 					</tr>
 				</thead>
 			</table>
-			<table
-				class="table table-hover table-bordered border border-secondary"
-				id="21710">
-				<thead>
-					<tr class="bg-secondary text-white">
-						<th colspan="3" scope="row">8768&nbsp; - Eivissa&nbsp; - IES
-							ALGARB (SANT JORDI DE SES SALINES)&nbsp; - (0590006)
-							MATEMÀTIQUES&nbsp;</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td colspan="3"><strong>Data adjudicació: </strong>09-04-2021
-							00:00</td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Llocs treball</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3"><span class="text-uppercase d-block">
-								07007929 - IES ALGARB (SANT JORDI DE SES SALINES) </span></td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Funcions</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3"><span class="text-uppercase d-block">
-
-								<i class="material-icons text-warning align-middle"
-								title="Funció principal">star</i> 0590006 - MATEMÀTIQUES
-						</span> <span class="text-uppercase d-block"> 0590059 - SUPORT A
-								L' ÀREA DE CIÈNCIES O TECNOLOGIA </span></td>
-					</tr>
-					<tr class="bg-light">
-						<td class="text-center"><strong>Tipus</strong></td>
-						<td class="text-center"><strong>Mitja jornada</strong></td>
-						<td class="text-center"><strong>Itinerant</strong></td>
-					</tr>
-					<tr>
-						<td class="text-center">Substitució</td>
-						<td class="text-center">No</td>
-						<td class="text-center">No</td>
-					</tr>
-					<tr class="bg-light text-center">
-						<td><strong>Data inici</strong></td>
-						<td><strong>Data finalització prevista</strong></td>
-						<td><strong>Data petició director</strong></td>
-					</tr>
-					<tr class="text-center">
-						<td>23-03-2021</td>
-						<td>17-05-2021</td>
-						<td>16-03-2021</td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Motiu</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3">BAIXA</td>
-					</tr>
-				</tbody>
-			</table>
+			<section class="container text-center">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive">
+					<table id="places_no_adjudicades" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Data adjudicació</th>
+                <th>Llocs treball</th>
+                <th>Convocatòria</th>
+                <th>Funcions</th>
+                <th>Tipus</th>
+				<th>Mitja jornada</th>
+                <th>Itinerant</th>
+                <th>Data inici</th>
+                <th>Data finalització prevista</th>
+                <th>Data petició director</th>
+                <th>Motiu</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Data adjudicació</th>
+                <th>Llocs treball</th>
+                <th>Convocatòria</th>
+                <th>Funcions</th>
+                <th>Tipus</th>
+				<th>Mitja jornada</th>
+                <th>Itinerant</th>
+                <th>Data inici</th>
+                <th>Data finalització prevista</th>
+                <th>Data petició director</th>
+                <th>Motiu</th>
+            </tr>
+        </tfoot>
+    </table>
+				</div>
+			</div>
+		</div>
+	</section>
 		</div>
 		<div class="container pb-3" id="classResultatsANU">
 			<table id="placesDisponiblesAnullades"
@@ -419,82 +681,48 @@
 					</tr>
 				</thead>
 			</table>
-			<table class="table table-hover table-bordered border" id="21680">
-				<thead>
-					<tr class="alert-danger">
-						<th colspan="3" scope="row">8904&nbsp; - Mallorca&nbsp; - IES
-							MOSSÈN ALCOVER (MANACOR)&nbsp; - (0590108) INTERVENCIÓ
-							SOCIOCOMUNITÀRIA&nbsp;</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Llocs treball</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3"><span class="text-uppercase d-block">
-								07002191 - IES MOSSÈN ALCOVER (MANACOR) </span></td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Funcions</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3"><span class="text-uppercase d-block">
-
-								<i class="material-icons text-warning align-middle"
-								title="Funció principal">star</i> 0590108 - INTERVENCIÓ
-								SOCIOCOMUNITÀRIA
-						</span></td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Perfils</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3"><span class="text-uppercase d-block">
-								Cicle formatiu de grau superior </span> <span
-							class="text-uppercase d-block"> Horari de tarda - Centre
-								amb matí i tarda : L'horari indicat pot patir modificacions. El
-								centre desenvolupa la seva oferta educativa en horari de matí i
-								horari de tarda. </span> <span class="text-uppercase d-block">
-								Base específica 9 (Resolució DGPD 19/12/2019) : Inserció
-								automàtica Perfil 500 </span></td>
-					</tr>
-					<tr class="bg-light">
-						<td class="text-center"><strong>Tipus</strong></td>
-						<td class="text-center"><strong>Mitja jornada</strong></td>
-						<td class="text-center"><strong>Itinerant</strong></td>
-					</tr>
-					<tr>
-						<td class="text-center">Vacant</td>
-						<td class="text-center">No</td>
-						<td class="text-center">No</td>
-					</tr>
-					<tr class="bg-light text-center">
-						<td><strong>Data inici</strong></td>
-						<td><strong>Data finalització prevista</strong></td>
-						<td><strong>Data petició director</strong></td>
-					</tr>
-					<tr class="text-center">
-						<td>12-04-2021</td>
-						<td>30-06-2021</td>
-						<td>05-04-2021</td>
-					</tr>
-					<tr class="bg-light">
-						<td colspan="3"><strong>Motiu</strong></td>
-					</tr>
-					<tr>
-						<td colspan="3">RENÚNCIA NO JUSTIFICADA</td>
-					</tr>
-					<tr>
-						<td colspan="3"><strong>Data d'anul·lació: </strong>
-							09-04-2021.</td>
-					</tr>
-					<tr>
-						<td colspan="3"><strong>Motiu d'anul·lació: </strong>PERFILACIO
-							ERRONIA</td>
-					</tr>
-				</tbody>
-			</table>
+			<section class="container text-center">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive">
+					<table id="places_eliminades" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Llocs treball</th>
+                <th>Funcions</th>
+                <th>Perfils</th>
+                <th>Tipus</th>
+				<th>Mitja jornada</th>
+                <th>Itinerant</th>
+                <th>Data inici</th>
+                <th>Data finalització prevista</th>
+                <th>Data petició director</th>
+                <th>Motiu</th>
+                <th>Data anul·lació</th>
+                <th>Motiu anul·lació</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Llocs treball</th>
+                <th>Funcions</th>
+                <th>Perfils</th>
+                <th>Tipus</th>
+				<th>Mitja jornada</th>
+                <th>Itinerant</th>
+                <th>Data inici</th>
+                <th>Data finalització prevista</th>
+                <th>Data petició director</th>
+                <th>Motiu</th>
+                <th>Data anul·lació</th>
+                <th>Motiu anul·lació</th>
+            </tr>
+        </tfoot>
+    </table>
+				</div>
+			</div>
+		</div>
+	</section>
 		</div>
 	</div>
 	<section class="container">
