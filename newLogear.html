@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Json to Table testing</title>
+</head>
+<!-- JQUERY -->
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<body id="body">
+	<table>
+		<thead>
+			<tr>
+				<th>Unitat Educativa</th>
+				<th>Nom de Lloc</th>
+				<th>Destinació</th>
+				<th>Ordre preferencia</th>
+				<th>Modificar ordre preferencia</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>aaaaaaa</td>
+				<td>aaaaaa</td>
+				<td>aaaaaaa</td>
+				<td class="ordre">0</td>
+				<td class="editable"><input type="number" pattern="[0-9]{1}"
+					class="prova" value="0"></td>
+			</tr>
+			<tr>
+				<td>bbbbbb</td>
+				<td>bbbbbb</td>
+				<td>bbbbbb</td>
+				<td class="ordre">0</td>
+				<td class="editable"><input type="number" pattern="[0-9]{1}"
+					class="prova" value="1"></td>
+			</tr>
+			<tr>
+				<td>cccccc</td>
+				<td>cccccc</td>
+				<td>cccccc</td>
+				<td class="ordre">0</td>
+				<td class="editable"><input type="number" pattern="[0-9]{1}"
+					class="prova" value="2"></td>
+			</tr>
+			<tr>
+				<td>ddddddd</td>
+				<td>ddddd</td>
+				<td>dddddd</td>
+				<td class="ordre">0</td>
+				<td class="editable"><input type="number" pattern="[0-9]{1}"
+					class="prova" value="3"></td>
+			</tr>
+		</tbody>
+	</table>
+	<button id="desa">Desa</button>
+	<table>
+		<thead>
+			<tr>
+				<th>Unitat Educativa</th>
+				<th>Nom de Lloc</th>
+				<th>Destinació</th>
+				<th>Ordre preferencia</th>
+				<th>Modificar ordre preferencia</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+
+		</tbody>
+	</table>
+
+	<script>
+		var json = [ {
+			unitat : "aaaa",
+			nom_del_lloc : "aaaa",
+			destinacio : "aaaa",
+			ordre_preferencia : "0",
+		}, {
+			unitat : "bbbb",
+			nom_del_lloc : "bbbb",
+			destinacio : "bbbb",
+			ordre_preferencia : "0",
+		}, {
+			unitat : "cccc",
+			nom_del_lloc : "cccc",
+			destinacio : "cccc",
+			ordre_preferencia : "0",
+		}, {
+			unitat : "dddd",
+			nom_del_lloc : "dddd",
+			destinacio : "dddd",
+			ordre_preferencia : "0",
+		}, {
+			unitat : "eeee",
+			nom_del_lloc : "eeee",
+			destinacio : "eeee",
+			ordre_preferencia : "0",
+		}, ];
+		function createTableBody(json) {
+
+			var tbody = document.getElementById("tbody");
+
+			for (var i = 0; i < json.length; i++) {
+				var row = document.createElement("tr");
+				for (var j = 0; j < json[i].length; j++) {
+					var cell = document.createElement("td");
+				}
+
+			}
+
+		}
+		$(document).ready(function() {
+			$("#desa").click(function() {
+				var inputs = $(".prova").map(function() {
+					return $(this).val();
+				}).get();
+				console.log($(".prova").map(function() {
+					return $(this).val();
+				}).get());
+				var cells = $(".ordre");
+				for (var i = 0; inputs.lenght; i++) {
+					cells[i].html(inputs[i]);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

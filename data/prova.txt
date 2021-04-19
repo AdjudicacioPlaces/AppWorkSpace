@@ -9,7 +9,52 @@
       "admin": "CAIB",
       "tipus_contracte": "Fixo discontinu",
       "tipus_jornada": "Completa",
-      "categoria": "Netejador/a"
+      "categoria": "Netejador/a",
+      "ordre_preferencia": "0"
+    },{
+      "id": "2",
+      "unitat": "IES MOSSEN ALCOVER",
+      "nom_del_lloc": "Netejador/a",
+      "destinacio": "Manacor",
+      "illa": "Mallorca",
+      "admin": "CAIB",
+      "tipus_contracte": "Fixo discontinu",
+      "tipus_jornada": "Completa",
+      "categoria": "Netejador/a",
+      "ordre_preferencia": "0"
+    },{
+      "id": "3",
+      "unitat": "IES SON FERRER",
+      "nom_del_lloc": "Netejador/a",
+      "destinacio": "Calvià",
+      "illa": "Mallorca",
+      "admin": "CAIB",
+      "tipus_contracte": "Fixo discontinu",
+      "tipus_jornada": "Completa",
+      "categoria": "Netejador/a",
+      "ordre_preferencia": "0"
+    },{
+      "id": "4",
+      "unitat": "IES SANTA MARGALIDA",
+      "nom_del_lloc": "Netejador/a",
+      "destinacio": "Santa Margalida",
+      "illa": "Mallorca",
+      "admin": "CAIB",
+      "tipus_contracte": "Fixo discontinu",
+      "tipus_jornada": "Completa",
+      "categoria": "Netejador/a",
+      "ordre_preferencia": "0"
+    },{
+      "id": "5",
+      "unitat": "IES CAPDEPERA",
+      "nom_del_lloc": "Netejador/a",
+      "destinacio": "Capdepera",
+      "illa": "Mallorca",
+      "admin": "CAIB",
+      "tipus_contracte": "Fixo discontinu",
+      "tipus_jornada": "Completa",
+      "categoria": "Netejador/a",
+      "ordre_preferencia": "0"
     }
   ]
 }
