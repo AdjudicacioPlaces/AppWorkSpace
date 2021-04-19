@@ -43,7 +43,7 @@
 						cellValue = "";
 					row$.append($('<td/>').html(cellValue));
 				}
-				row$.append($('<td/>').html("<input type='number' min='0' max='9'>"));
+				row$.append($('<td/>').html("<input type='number' min='0' max='9' onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>"));
 				$(selector).append(row$);
 			}
 		}
