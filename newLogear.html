@@ -54,6 +54,7 @@
 		</tbody>
 	</table>
 	<button id="desa">Desa</button>
+	<button id="create">Crea la taula</button>
 	<table>
 		<thead>
 			<tr>
@@ -96,19 +97,7 @@
 			destinacio : "eeee",
 			ordre_preferencia : "0",
 		}, ];
-		function createTableBody(json) {
-
-			var tbody = document.getElementById("tbody");
-
-			for (var i = 0; i < json.length; i++) {
-				var row = document.createElement("tr");
-				for (var j = 0; j < json[i].length; j++) {
-					var cell = document.createElement("td");
-				}
-
-			}
-
-		}
+		
 		$(document).ready(function() {
 			$("#desa").click(function() {
 				var inputs = $(".prova").map(function() {
@@ -122,6 +111,45 @@
 					cells[i].html(inputs[i]);
 				}
 			});
+			$("#create").click(function() {
+				$.fn.createTableBody(json);
+			});
+
+			$.fn.createTableBody = function(json) {
+
+				var tbody = document.getElementById("tbody");
+
+				for (var i = 0; i < json.length; i++) {
+					var row = document.createElement("tr");
+					var cell = document.createElement("td");
+					var cellText = document.createTextNode(json[i].unitat);
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+					var cell = document.createElement("td");
+					var cellText = document.createTextNode(json[i].nom_del_lloc);
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+					var cell = document.createElement("td");
+					var cellText = document.createTextNode(json[i].destinacio);
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+					var cell = document.createElement("td");
+					var cellText = document.createTextNode(json[i].ordre_preferencia);
+					cell.appendChild(cellText);
+					row.appendChild(cell);
+					var cell = document.createElement("td");
+					var input = document.createElement("INPUT");
+					input.setAttribute("type", "number");
+					input.setAttribute("min", "0");
+					input.setAttribute("max", "9");
+					input.setAttribute("onkeypress", "return (event.charCode >= 48 && event.charCode <= 57)");
+					input.setAttribute("class", "prova");
+					input.setAttribute("value", "0");
+					cell.appendChild(input);
+					row.appendChild(cell);
+					tbody.appendChild(row);
+				}
+			}
 		});
 	</script>
 </body>
