@@ -7,150 +7,66 @@
 <!-- JQUERY -->
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<body id="body">
-	<table>
-		<thead>
-			<tr>
-				<th>Unitat Educativa</th>
-				<th>Nom de Lloc</th>
-				<th>Destinació</th>
-				<th>Ordre preferencia</th>
-				<th>Modificar ordre preferencia</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>aaaaaaa</td>
-				<td>aaaaaa</td>
-				<td>aaaaaaa</td>
-				<td class="ordre">0</td>
-				<td class="editable"><input type="number" min="0" max="9" pattern="{1}"
-					class="prova" value="0" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></td>
-			</tr>
-			<tr>
-				<td>bbbbbb</td>
-				<td>bbbbbb</td>
-				<td>bbbbbb</td>
-				<td class="ordre">0</td>
-				<td class="editable"><input type="number" min="0" max="9" pattern="{1}"
-					class="prova" value="1" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></td>
-			</tr>
-			<tr>
-				<td>cccccc</td>
-				<td>cccccc</td>
-				<td>cccccc</td>
-				<td class="ordre">0</td>
-				<td class="editable"><input type="number" min="0" max="9" pattern="{1}"
-					class="prova" value="2" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></td>
-			</tr>
-			<tr>
-				<td>ddddddd</td>
-				<td>ddddd</td>
-				<td>dddddd</td>
-				<td class="ordre">0</td>
-				<td class="editable"><input type="number" min="0" max="9" pattern="{1}"
-					class="prova" value="3" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></td>
-			</tr>
-		</tbody>
-	</table>
-	<button id="desa">Desa</button>
-	<button id="create">Crea la taula</button>
-	<table>
-		<thead>
-			<tr>
-				<th>Unitat Educativa</th>
-				<th>Nom de Lloc</th>
-				<th>Destinació</th>
-				<th>Ordre preferencia</th>
-				<th>Modificar ordre preferencia</th>
-			</tr>
-		</thead>
-		<tbody id="tbody">
+<body id="body" onLoad="buildHtmlTable('#excelDataTable')">
+	<table id="excelDataTable" border="1">
 
-		</tbody>
 	</table>
 
 	<script>
-		var json = [ {
-			unitat : "aaaa",
-			nom_del_lloc : "aaaa",
-			destinacio : "aaaa",
-			ordre_preferencia : "0",
-		}, {
-			unitat : "bbbb",
-			nom_del_lloc : "bbbb",
-			destinacio : "bbbb",
-			ordre_preferencia : "0",
-		}, {
-			unitat : "cccc",
-			nom_del_lloc : "cccc",
-			destinacio : "cccc",
-			ordre_preferencia : "0",
-		}, {
-			unitat : "dddd",
-			nom_del_lloc : "dddd",
-			destinacio : "dddd",
-			ordre_preferencia : "0",
-		}, {
-			unitat : "eeee",
-			nom_del_lloc : "eeee",
-			destinacio : "eeee",
-			ordre_preferencia : "0",
-		}, ];
-		
-		$(document).ready(function() {
-			$("#desa").click(function() {
-				var inputs = $(".prova").map(function() {
-					return $(this).val();
-				}).get();
-				console.log($(".prova").map(function() {
-					return $(this).val();
-				}).get());
-				var cells = $(".ordre");
-				for (var i = 0; inputs.lenght; i++) {
-					cells[i].html(inputs[i]);
+		var lista = (function() {
+			var json = null;
+			$.ajax({
+				'async' : false,
+				'global' : false,
+				'url' : "data/newLoggear.json",
+				'dataType' : "json",
+				'success' : function(data) {
+					json = data;
 				}
 			});
-			$("#create").click(function() {
-				$.fn.createTableBody(json);
-			});
+			return json;
+		})();
 
-			$.fn.createTableBody = function(json) {
+		var myList = lista.data;
 
-				var tbody = document.getElementById("tbody");
+		console.log(myList);
 
-				for (var i = 0; i < json.length; i++) {
-					var row = document.createElement("tr");
-					var cell = document.createElement("td");
-					var cellText = document.createTextNode(json[i].unitat);
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					var cell = document.createElement("td");
-					var cellText = document.createTextNode(json[i].nom_del_lloc);
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					var cell = document.createElement("td");
-					var cellText = document.createTextNode(json[i].destinacio);
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					var cell = document.createElement("td");
-					var cellText = document.createTextNode(json[i].ordre_preferencia);
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					var cell = document.createElement("td");
-					var input = document.createElement("INPUT");
-					input.setAttribute("type", "number");
-					input.setAttribute("min", "0");
-					input.setAttribute("max", "9");
-					input.setAttribute("onkeypress", "return (event.charCode >= 48 && event.charCode <= 57)");
-					input.setAttribute("class", "prova");
-					input.setAttribute("value", "0");
-					cell.appendChild(input);
-					row.appendChild(cell);
-					tbody.appendChild(row);
+		// Builds the HTML Table out of myList.
+		function buildHtmlTable(selector) {
+			var columns = addAllColumnHeaders(myList, selector);
+
+			for (var i = 0; i < myList.length; i++) {
+				var row$ = $('<tr/>');
+				for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+					var cellValue = myList[i][columns[colIndex]];
+					if (cellValue == null)
+						cellValue = "";
+					row$.append($('<td/>').html(cellValue));
+				}
+				$(selector).append(row$);
+			}
+		}
+
+		// Adds a header row to the table and returns the set of columns.
+		// Need to do union of keys from all records as some records may not contain
+		// all records.
+		function addAllColumnHeaders(myList, selector) {
+			var columnSet = [];
+			var headerTr$ = $('<tr/>');
+
+			for (var i = 0; i < myList.length; i++) {
+				var rowHash = myList[i];
+				for ( var key in rowHash) {
+					if ($.inArray(key, columnSet) == -1) {
+						columnSet.push(key);
+						headerTr$.append($('<th/>').html(key));
+					}
 				}
 			}
-		});
+			$(selector).append(headerTr$);
+
+			return columnSet;
+		}
 	</script>
 </body>
 </html>
