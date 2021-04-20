@@ -12,6 +12,7 @@
 	<!-- Contenido -->
 	<table id="excelDataTable" border="1">
 	</table>
+	<button type="button" id="desa">Desa els canvis</button>
 	<!-- Contenido -->
 	<!-- Scripts -->
 	<script>
@@ -47,7 +48,7 @@
 				row$
 						.append($('<td/>')
 								.html(
-										"<input type='number' min='0' max='9' onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>"));
+										"<input type='number' class='prova' min='0' max='9' onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>"));
 				$(selector).append(row$);
 			}
 			setFunction();
@@ -130,6 +131,21 @@
 				}
 			}
 		}
+		// Instrucción JQuery que recoge los valores de los inputs y los muestra por consola.
+		$(document).ready(
+				function() {
+					$("#desa").click(function() {
+						var inputs = $(".prova").map(function() {
+							return $(this).val();
+						}).get();
+						for (var i = 0; i < inputs.length; i++) {
+							myList[i].ordre_preferencia = inputs[i];
+						}
+						for (var i = 0; i < myList.length; i++) {
+							console.log(myList[i].ordre_preferencia);
+						}
+					});
+				});
 	</script>
 	<!-- Scripts -->
 </body>
