@@ -134,7 +134,6 @@ $(document).ready(
 			for (var i = 0; i < codes.length; i++) {
 				if (inputs[i] == "") {
 					inputs[i] = myList[i].ordre_preferencia;
-					console.log(myList[i].ordre_preferencia);
 				}
 				newJson += "{'" + codes[i] + "': '"
 					+ inputs[i] + "'}";
