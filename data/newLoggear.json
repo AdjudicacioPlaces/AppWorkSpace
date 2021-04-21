@@ -1,26 +1,31 @@
 {
   "data": [
     {
+   	  "id": "1",
       "unitat": "IES JUNIPER SERRA",
       "nom_del_lloc": "Netejador/a",
       "destinacio": "Palma",
       "ordre_preferencia": "0"
     },{
+      "id": "2",
       "unitat": "IES MOSSEN ALCOVER",
       "nom_del_lloc": "Netejador/a",
       "destinacio": "Manacor",
       "ordre_preferencia": "0"
     },{
+      "id": "3",
       "unitat": "IES SON FERRER",
       "nom_del_lloc": "Netejador/a",
       "destinacio": "Calvià",
       "ordre_preferencia": "0"
     },{
+      "id": "4",
       "unitat": "IES SANTA MARGALIDA",
       "nom_del_lloc": "Netejador/a",
       "destinacio": "Santa Margalida",
       "ordre_preferencia": "0"
     },{
+      "id": "5",
       "unitat": "IES CAPDEPERA",
       "nom_del_lloc": "Netejador/a",
       "destinacio": "Capdepera",
