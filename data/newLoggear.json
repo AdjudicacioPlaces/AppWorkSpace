@@ -2,34 +2,34 @@
   "data": [
     {
    	  "id": "1",
-      "unitat": "IES JUNIPER SERRA",
-      "nom_del_lloc": "Netejador/a",
-      "destinacio": "Palma",
-      "ordre_preferencia": "0"
+      "Unitat": "IES JUNIPER SERRA",
+      "Nom del lloc": "Netejador/a",
+      "Destinació": "Palma",
+      "Ordre preferència": "0"
     },{
       "id": "2",
-      "unitat": "IES MOSSEN ALCOVER",
-      "nom_del_lloc": "Netejador/a",
-      "destinacio": "Manacor",
-      "ordre_preferencia": "0"
+      "Unitat": "IES MOSSEN ALCOVER",
+      "Nom del lloc": "Netejador/a",
+      "Destinació": "Manacor",
+      "Ordre preferència": "0"
     },{
       "id": "3",
-      "unitat": "IES SON FERRER",
-      "nom_del_lloc": "Netejador/a",
-      "destinacio": "Calvià",
-      "ordre_preferencia": "0"
+      "Unitat": "IES SON FERRER",
+      "Nom del lloc": "Netejador/a",
+      "Destinació": "Calvià",
+      "Ordre preferència": "0"
     },{
       "id": "4",
-      "unitat": "IES SANTA MARGALIDA",
-      "nom_del_lloc": "Netejador/a",
-      "destinacio": "Santa Margalida",
-      "ordre_preferencia": "0"
+      "Unitat": "IES SANTA MARGALIDA",
+      "Nom del lloc": "Netejador/a",
+      "Destinació": "Santa Margalida",
+      "Ordre preferència": "0"
     },{
       "id": "5",
-      "unitat": "IES CAPDEPERA",
-      "nom_del_lloc": "Netejador/a",
-      "destinacio": "Capdepera",
-      "ordre_preferencia": "0"
+      "Unitat": "IES CAPDEPERA",
+      "Nom del lloc": "Netejador/a",
+      "Destinació": "Capdepera",
+      "Ordre preferència": "0"
     }
   ]
 }
