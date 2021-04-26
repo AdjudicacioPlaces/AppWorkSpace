@@ -4,354 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Portal del personal de neteja">
+<meta name="description" content="Portal dels Interins">
 <meta name="author" content="Govern de les Illes Balears.">
 
-<title>Portal del personal de neteja</title>
-
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+<title>Resultats de les adjudicacions</title>
+<!-- Scripts -->
+<!-- Bootstrap JS -->
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+	crossorigin="anonymous"></script>
+<!-- JQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<!-- Ajax -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- DATATABLE AJAX JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<!-- JS externo -->
+<script type="text/javascript" src="js/newLogear.js"></script>
+<script type="text/javascript" src="js/Adjudicacio.js"></script>
+<!-- Scripts -->
+<!-- Estilos -->
+<!-- Bootstrap CSS -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-	crossorigin="anonymous"></script>
-
-
-<!-- DATATABLE CSS -->
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-
-
-<!-- DATATABLE AJAX CSS -->
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
-
-<!-- Proba -->
-<script src="https:////cdn.datatables.net/plug-ins/1.10.24/sorting/intl.js"></script>
-<script src=//cdn.datatables.net/plug-ins/1.10.24/filtering/type-based/accent-neutralise.js></script>
-
-
-
-<!-- DATATABLE AJAX JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script
-	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready((function(){
-	 
-	function removeAccents ( data ) {
-	    if ( data.normalize ) {
-	        // Use I18n API if avaiable to split characters and accents, then remove
-	        // the accents wholesale. Note that we use the original data as well as
-	        // the new to allow for searching of either form.
-	        return data +' '+ data
-	            .normalize('NFD')
-	            .replace(/[\u0300-\u036f]/g, '');
-	    }
-	 
-	    return data;
-	}
-	 
-	var searchType = jQuery.fn.DataTable.ext.type.search;
-	 
-	searchType.string = function ( data ) {
-	    return ! data ?
-	        '' :
-	        typeof data === 'string' ?
-	            removeAccents( data ) :
-	            data;
-	};
-	 
-	searchType.html = function ( data ) {
-	    return ! data ?
-	        '' :
-	        typeof data === 'string' ?
-	            removeAccents( data.replace( /<.*?>/g, '' ) ) :
-	            data;
-	};
-	 
-	}()));
-</script>
-	
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#places_adjudicades').DataTable( {
-    	"ajax": "data/arrays.txt",
-    	"columns": [
-            { "data": "data_adjudicacio" },
-            { "data": "llocs_treball" },
-            { "data": "convocatoria" },
-            { "data": "funcions" },
-            { "data": "tipus" },
-            { "data": "mitja_jornada" },
-            { "data": "itinerant" },
-            { "data": "data_inici" },
-            { "data": "data_finalitzacio_prevista" },
-            { "data": "data_peticio_director" },
-            { "data": "motiu" }   
-        ],
-        "language": {
-            "processing": "Processant...",
-            "lengthMenu": "Mostra _MENU_ registres",
-            "zeroRecords": "No s'han trobat registres",
-            "emptyTable": "No hi ha registres disponible en aquesta taula",
-            "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
-            "infoEmpty": "No hi ha registres disponibles",
-            "infoFiltered": "(filtrat de _MAX_ registres)",
-            "search": "Cerca:",
-            "infoThousands": ".",
-            "decimal": ",",
-            "loadingRecords": "Carregant...",
-            "paginate": {
-                "first": "Primer",
-                "previous": "Anterior",
-                "next": "Següent",
-                "last": "Últim"
-            },
-            "aria": {
-                "sortAscending": ": Activa per ordenar la columna de manera ascendent",
-                "sortDescending": ": Activa per ordenar la columna de manera descendent"
-            },
-            "buttons": {
-                "print": "Imprimeix",
-                "copy": "Copia",
-                "colvis": "Columnes",
-                "copyTitle": "Copia al portapapers",
-                "copySuccess": {
-                    "_": "%d files copiades",
-                    "1": "1 fila copiada"
-                },
-                "pageLength": {
-                    "-1": "Mostra totes les files",
-                    "_": "Mostra %d files"
-                },
-                "pdf": "PDF"
-            },
-            "select": {
-                "rows": {
-                    "_": "%d files seleccionades",
-                    "0": "Cap fila seleccionada",
-                    "1": "1 fila seleccionada"
-                }
-            },
-            "autoFill": {
-                "cancel": "Cancel·lar"
-            },
-            "thousands": ".",
-            "datetime": {
-                "hours": "Hora",
-                "minutes": "Minut",
-                "seconds": "Segons",
-                "unknown": "Desconegut",
-                "amPm": [
-                    "am",
-                    "pm"
-                ]
-            },
-            "editor": {
-                "close": "Tancar"
-            }
-        },
-    } );
-    
-} );
-</script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#places_no_adjudicades').DataTable( {
-    	"ajax": "data/arrays.txt",
-    	"columns": [
-            { "data": "data_adjudicacio" },
-            { "data": "llocs_treball" },
-            { "data": "convocatoria" },
-            { "data": "funcions" },
-            { "data": "tipus" },
-            { "data": "mitja_jornada" },
-            { "data": "itinerant" },
-            { "data": "data_inici" },
-            { "data": "data_finalitzacio_prevista" },
-            { "data": "data_peticio_director" },
-            { "data": "motiu" }   
-        ],
-        "language": {
-            "processing": "Processant...",
-            "lengthMenu": "Mostra _MENU_ registres",
-            "zeroRecords": "No s'han trobat registres",
-            "emptyTable": "No hi ha registres disponible en aquesta taula",
-            "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
-            "infoEmpty": "No hi ha registres disponibles",
-            "infoFiltered": "(filtrat de _MAX_ registres)",
-            "search": "Cerca:",
-            "infoThousands": ".",
-            "decimal": ",",
-            "loadingRecords": "Carregant...",
-            "paginate": {
-                "first": "Primer",
-                "previous": "Anterior",
-                "next": "Següent",
-                "last": "Últim"
-            },
-            "aria": {
-                "sortAscending": ": Activa per ordenar la columna de manera ascendent",
-                "sortDescending": ": Activa per ordenar la columna de manera descendent"
-            },
-            "buttons": {
-                "print": "Imprimeix",
-                "copy": "Copia",
-                "colvis": "Columnes",
-                "copyTitle": "Copia al portapapers",
-                "copySuccess": {
-                    "_": "%d files copiades",
-                    "1": "1 fila copiada"
-                },
-                "pageLength": {
-                    "-1": "Mostra totes les files",
-                    "_": "Mostra %d files"
-                },
-                "pdf": "PDF"
-            },
-            "select": {
-                "rows": {
-                    "_": "%d files seleccionades",
-                    "0": "Cap fila seleccionada",
-                    "1": "1 fila seleccionada"
-                }
-            },
-            "autoFill": {
-                "cancel": "Cancel·lar"
-            },
-            "thousands": ".",
-            "datetime": {
-                "hours": "Hora",
-                "minutes": "Minut",
-                "seconds": "Segons",
-                "unknown": "Desconegut",
-                "amPm": [
-                    "am",
-                    "pm"
-                ]
-            },
-            "editor": {
-                "close": "Tancar"
-            }
-        }  
-    } );
-    
-} );
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#places_eliminades').DataTable( {
-    	"ajax": "data/places_eliminades.txt",
-    	"columns": [
-            { "data": "llocs_treball" },
-            { "data": "funcions" },
-            { "data": "perfils" },
-            { "data": "tipus" },
-            { "data": "mitja_jornada" },
-            { "data": "itinerant" },
-            { "data": "data_inici" },
-            { "data": "data_finalitzacio_prevista" },
-            { "data": "data_peticio_director" },
-            { "data": "motiu" },
-            { "data": "data_anulacio" },
-            { "data": "motiu_anulacio" }
-            
-        ],
-        "language": {
-            "processing": "Processant...",
-            "lengthMenu": "Mostra _MENU_ registres",
-            "zeroRecords": "No s'han trobat registres",
-            "emptyTable": "No hi ha registres disponible en aquesta taula",
-            "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
-            "infoEmpty": "No hi ha registres disponibles",
-            "infoFiltered": "(filtrat de _MAX_ registres)",
-            "search": "Cerca:",
-            "infoThousands": ".",
-            "decimal": ",",
-            "loadingRecords": "Carregant...",
-            "paginate": {
-                "first": "Primer",
-                "previous": "Anterior",
-                "next": "Següent",
-                "last": "Últim"
-            },
-            "aria": {
-                "sortAscending": ": Activa per ordenar la columna de manera ascendent",
-                "sortDescending": ": Activa per ordenar la columna de manera descendent"
-            },
-            "buttons": {
-                "print": "Imprimeix",
-                "copy": "Copia",
-                "colvis": "Columnes",
-                "copyTitle": "Copia al portapapers",
-                "copySuccess": {
-                    "_": "%d files copiades",
-                    "1": "1 fila copiada"
-                },
-                "pageLength": {
-                    "-1": "Mostra totes les files",
-                    "_": "Mostra %d files"
-                },
-                "pdf": "PDF"
-            },
-            "select": {
-                "rows": {
-                    "_": "%d files seleccionades",
-                    "0": "Cap fila seleccionada",
-                    "1": "1 fila seleccionada"
-                }
-            },
-            "autoFill": {
-                "cancel": "Cancel·lar"
-            },
-            "thousands": ".",
-            "datetime": {
-                "hours": "Hora",
-                "minutes": "Minut",
-                "seconds": "Segons",
-                "unknown": "Desconegut",
-                "amPm": [
-                    "am",
-                    "pm"
-                ]
-            },
-            "editor": {
-                "close": "Tancar"
-            }
-        }  
-    } );
-    
-} );
-</script>
-<style type="text/css">
-.slick-track {
-	display: flex !important;
-}
-
-.slick-slide {
-	height: inherit !important;
-}
-</style>
+<!-- Iconos -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<!-- DATATABLE CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+	<!-- DATATABLE AJAX CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+<!-- CSS externo -->
+<link rel="stylesheet" href="css/style.css">
+<!-- Estilos -->
 </head>
-<body>
-	<!-- Barra Navegacion -->
+<body onLoad="buildHtmlTable('#excelDataTable')">
+	<!-- Barra Navegación -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<!-- LOGO GOIB -->
-			<a class="navbar-brand" href="inici.do"><img
-				src="img\logo_caib.es.png" class="logo"
-				style="width: 70px; height: 70px" /></a>
+			<a class="navbar-brand" href="index.html"><img
+				src="files\logo_caib.es.png" class="logo" /></a>
 			<button class="navbar-toggler collapsed" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 				aria-controls="navbarCollapse" aria-expanded="false"
@@ -359,6 +60,7 @@ $(document).ready(function() {
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- LOGO GOIB -->
+			<!-- Items Navegación -->
 			<div class="container-fluid">
 				<div class="navbar-collapse collapse justify-content-end"
 					id="navbarCollapse">
@@ -374,7 +76,6 @@ $(document).ready(function() {
 								aria-labelledby="navbarDarkDropdownMenuLink">
 								<li><a class="dropdown-item" href="#">per Personal de
 										Neteja</a></li>
-								<li><a class="dropdown-item" href="#">per ATE</a></li>
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle active" href="#"
@@ -397,17 +98,16 @@ $(document).ready(function() {
 					</ul>
 				</div>
 			</div>
+			<!-- Items Navegación -->
 		</div>
 	</nav>
-	<!-- Barra Navegacion -->
+	<!-- Barra Navegación -->
 	<!-- Cabecera -->
-	<header class="py-5 mb-5 text-center"
-		style="background-color: #10BED2; margin-top: 60px">
+	<header class="py-5 mb-5">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-12">
-					<h1 class="display-4 text-white mt-5 mb-2">Resultat de les
-						adjudicacions</h1>
+					<h1 class="display-4 text-white mt-5 mb-2">Resultats de les adjudicacions</h1>
 				</div>
 			</div>
 		</div>
@@ -416,7 +116,7 @@ $(document).ready(function() {
 	<!-- Contenido -->
 	<div class="container pb-5">
 		<div class="row justify-content-center">
-			<p class="text-center" style="font-size:30px">A continuació teniu les places que s'han adjudicat a les
+			<p id="subtitol" class="text-center">A continuació teniu les places que s'han adjudicat a les
 				diferents convocatòries del curs actual així com les places que
 				s'assignen en el procés extraordinari</p>
 			<!-- Selección Fecha -->
@@ -520,34 +220,30 @@ $(document).ready(function() {
 				    <input type="text" class="form-control form-control-lg" id="nomfuncio" placeholder="Nom de la funció"/>
 					-->
 				</div>
-				<div class="d-flex justify-content-center" style="margin-bottom:120px">
+				<div id="divButton" class="d-flex justify-content-center">
 					<button type="button" class="btn btn-primary btn-lg"
 						id="veureResultats">Veure</button>
 				</div>
 			</form>
 			<!-- Selección Fecha -->
 		</div>
-		<div class="alert alert-warning" role="alert" style="margin-bottom: 30px">
+		<div id="textWarning" class="alert alert-warning" role="alert">
 			(*)La finalització indicada és orientativa, no vinculant i està
 			supeditada a la incorporació del titular. Si el camp apareix en blanc
 			suposa que no és possible concretar cap termini</div>
-		<div class="container align-items-start text-center" style="margin-bottom: 20px">
+		<div id="divPlacesContainer" class="container align-items-start text-center">
 			<!-- Selección plazas -->
-			<div class="row align-items-start" style="padding-bottom: 15px;"
-				id="botonsResum">
+			<div id="divPlacesButtons" class="row align-items-start">
 				<a id="a_inici"></a>
-				<div class="col" style="margin-bottom:20px">
-					<a class="badge badge-primary bg-primary" href="#placesAdjudicades"
-						style="color: #fff; font-size: 20px; text-decoration:none">Places adjudicades</a>
+				<div id="buttonPlaces" class="col">
+					<a class="badge badge-primary bg-primary" href="#placesAdjudicades">Places adjudicades</a>
 				</div>
-				<div class="col" style="margin-bottom:20px">
-					<a class="badge badge-primary bg-primary" href="#placesDisponibles"
-						style="color: #fff; font-size: 20px; text-decoration:none">Places no adjudicades</a>
+				<div id="buttonPlaces" class="col">
+					<a class="badge badge-primary bg-primary" href="#placesDisponibles">Places no adjudicades</a>
 				</div>
 				<div class="col">
 					<a class="badge badge-primary bg-primary"
-						href="#placesDisponiblesAnullades"
-						style="color: #fff; font-size: 20px; text-decoration:none">Places eliminades</a>
+						href="#placesDisponiblesAnullades">Places eliminades</a>
 				</div>
 			</div>
 			<!-- Selección plazas -->
@@ -555,8 +251,7 @@ $(document).ready(function() {
 		<!-- Resultados -->
 		<div id="classResultatsDIS" class="container pb-3">
 			<table id="placesAdjudicades"
-				class="table table-striped table-hover table-bordered collapse show"
-				style="">
+				class="table table-striped table-hover table-bordered collapse show">
 				<thead class="table-primary text-muted">
 					<tr>
 						<th colspan="9">
@@ -574,7 +269,7 @@ $(document).ready(function() {
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="table-responsive">
-					<table id="places_adjudicades" class="display" style="width:100%">
+					<table id="places_adjudicades" class="display">
         <thead>
             <tr>
                 <th>Data adjudicació</th>
@@ -631,7 +326,7 @@ $(document).ready(function() {
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="table-responsive">
-					<table id="places_no_adjudicades" class="display" style="width:100%">
+					<table id="places_no_adjudicades" class="display">
         <thead>
             <tr>
                 <th>Data adjudicació</th>
@@ -688,7 +383,7 @@ $(document).ready(function() {
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="table-responsive">
-					<table id="places_eliminades" class="display" style="width:100%">
+					<table id="places_eliminades" class="display">
         <thead>
             <tr>
                 <th>Llocs treball</th>
@@ -729,13 +424,14 @@ $(document).ready(function() {
 		</div>
 		<!-- Resultados -->
 	</div>
-	<section class="container">
+	<!-- Datos de contacto -->
+	<section id="contactSection" class="container">
 		<div class="row">
 			<div class="col-md-8">
 				<h3>Govern de las Illes Balears</h3>
 			</div>
 		</div>
-		<div class="row d-flex align-items-end" style="margin-bottom: 20px;">
+		<div id="addressDiv" class="row d-flex align-items-end">
 			<div class="col-md-6">
 				<hr>
 				<address class="d-flex align-items-start">
@@ -758,7 +454,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</section>
-	<!-- Contenido -->
+	<!-- Datos de contacto -->
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
@@ -766,5 +462,6 @@ $(document).ready(function() {
 				Balears</p>
 		</div>
 	</footer>
+	<!-- Footer -->
 </body>
 </html>

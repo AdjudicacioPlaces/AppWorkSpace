@@ -4,7 +4,7 @@ var lista = (function() {
 	$.ajax({
 		'async': false,
 		'global': false,
-		'url': "data/newLoggear.json",
+		'url': "files/newLoggear.json",
 		'dataType': "json",
 		'success': function(data) {
 			json = data;
