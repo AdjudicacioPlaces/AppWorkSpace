@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+   	  "id": "1",
+      "Unitat": "IES JUNIPER SERRA",
+      "Nom del lloc": "Netejador/a",
+      "Destinació³": "Palma",
+      "Ordre preferència": "0"
+    },{
+      "id": "2",
+      "Unitat": "IES MOSSEN ALCOVER",
+      "Nom del lloc": "Netejador/a",
+      "Destinació³": "Manacor",
+      "Ordre preferència": "0"
+    },{
+      "id": "3",
+      "Unitat": "IES SON FERRER",
+      "Nom del lloc": "Netejador/a",
+      "Destinació³": "CalviÃ ",
+      "Ordre preferència": "0"
+    },{
+      "id": "4",
+      "Unitat": "IES SANTA MARGALIDA",
+      "Nom del lloc": "Netejador/a",
+      "Destinació³": "Santa Margalida",
+      "Ordre preferència": "0"
+    },{
+      "id": "5",
+      "Unitat": "IES CAPDEPERA",
+      "Nom del lloc": "Netejador/a",
+      "Destinació": "Capdepera",
+      "Ordre preferència": "0"
+    }
+  ]
+}
