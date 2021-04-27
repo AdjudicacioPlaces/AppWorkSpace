@@ -32,7 +32,7 @@ function buildHtmlTable(selector) {
 		row$
 			.append($('<td/>')
 				.html(
-					"<input type='number' class='prova' min='0' max='9' onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>"));
+					"<input type='number' class='prova' min='0' max='9' onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' style=' width:100px'>" ));
 		$(selector).append(row$);
 	}
 	setFunction();
